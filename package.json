@@ -1,0 +1,74 @@
+{
+  "name": "lexus-ji-portfolio",
+  "version": "2.7.0",
+  "private": true,
+  "author": {
+    "name": "Lexous Marc",
+    "email": "lexousmarc14@gmail.com",
+    "url": "https://github.com/lexousjellicomarc"
+  },
+  "description": "A polished full-stack developer portfolio built with Next.js, React, Tailwind CSS, Framer Motion, Swiper, and tsParticles.",
+  "keywords": [
+    "portfolio",
+    "nextjs",
+    "react",
+    "tailwindcss",
+    "framer-motion",
+    "swiper",
+    "tsparticles",
+    "full-stack-developer",
+    "web-developer"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lexousjellicomarc/PORTFOLIO.git"
+  },
+  "homepage": "https://github.com/lexousjellicomarc/PORTFOLIO#readme",
+  "bugs": {
+    "url": "https://github.com/lexousjellicomarc/PORTFOLIO/issues",
+    "email": "lexousmarc14@gmail.com"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "node scripts/build-next-safe.mjs",
+    "start": "next start",
+    "lint": "eslint .",
+    "check": "npm run validate:content && npm run lint && npm run build",
+    "validate:content": "npm run sanitize:lock && node scripts/validate-template.mjs",
+    "clean": "node -e \"require('fs').rmSync('.next', { recursive: true, force: true })\"",
+    "generate:public-assets": "node scripts/generate-public-assets.mjs",
+    "prebuild": "npm run generate:public-assets",
+    "check:routes": "node scripts/check-routes.mjs",
+    "verify": "npm run check && npm run check:routes",
+    "sanitize:lock": "node scripts/sanitize-package-lock.mjs"
+  },
+  "dependencies": {
+    "@tsparticles/react": "^4.2.1",
+    "@tsparticles/slim": "^4.2.1",
+    "framer-motion": "^10.12.16",
+    "next": "16.2.9",
+    "react": "18.2.0",
+    "react-countup": "^6.4.2",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
+    "swiper": "^12.1.2",
+    "tailwind-scrollbar": "^3.0.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "16.2.9",
+    "postcss": "^8.5.10",
+    "postcss-nesting": "^14.0.0",
+    "tailwindcss": "^3.4.16"
+  },
+  "overrides": {
+    "postcss": "^8.5.10"
+  },
+  "engines": {
+    "node": ">=20.9.0",
+    "npm": ">=10.0.0"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Lexus_ji Portfolio",
+  "short_name": "Lexus_ji",
+  "description": "Lexus_ji is the portfolio of Lexous Jellico Marc R. Español, an aspiring full-stack developer focused on responsive web interfaces, Laravel and React systems, UI/UX design, RFID-assisted projects, documentation, and production-ready web output.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#131424",
+  "theme_color": "#f13024",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32 48x48 64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo-mark.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo-mark.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ]
+}
