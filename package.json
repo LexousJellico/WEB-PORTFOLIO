@@ -7,7 +7,7 @@
     "email": "lexousmarc14@gmail.com",
     "url": "https://github.com/lexousjellicomarc"
   },
-  "description": "A polished full-stack developer portfolio built with Next.js, React, Tailwind CSS, Framer Motion, Swiper, and tsParticles.",
+  "description": "A polished full-stack developer portfolio built with Next.js, React, Tailwind CSS, Framer Motion, Swiper, SMTP contact email, and tsParticles.",
   "keywords": [
     "portfolio",
     "nextjs",
@@ -31,7 +31,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/build-next-safe.mjs",
+    "build": "cross-env NEXT_TELEMETRY_DISABLED=1 next build",
     "start": "next start",
     "lint": "eslint .",
     "check": "npm run validate:content && npm run lint && npm run build",
@@ -48,6 +48,7 @@
     "@tsparticles/slim": "^4.2.1",
     "framer-motion": "^10.12.16",
     "next": "16.2.9",
+    "nodemailer": "^9.0.1",
     "react": "18.2.0",
     "react-countup": "^6.4.2",
     "react-dom": "18.2.0",

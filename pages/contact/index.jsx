@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
-
 import ScreenFrame from "../../components/ScreenFrame";
 import { siteConfig } from "../../data/siteConfig";
 import { fadeIn } from "../../variants";
@@ -16,7 +15,7 @@ const contactEndpoint = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT || "/api/contac
 const serverStatusMessages = {
   sent: {
     type: "success",
-    message: "Message submitted successfully. Thank you for reaching out.",
+    message: "Message sent successfully. I received it in my email.",
   },
   invalid: {
     type: "error",
@@ -34,14 +33,14 @@ const serverStatusMessages = {
 
 const getStatusClassName = (type) => {
   if (type === "success") {
-    return "text-green-300";
+    return "border-green-400/30 bg-green-400/10 text-green-200";
   }
 
   if (type === "info") {
-    return "text-yellow-200";
+    return "border-yellow-300/30 bg-yellow-300/10 text-yellow-100";
   }
 
-  return "text-red-300";
+  return "border-red-400/30 bg-red-400/10 text-red-200";
 };
 
 const Contact = ({ initialStatus = emptyStatus }) => {
@@ -75,10 +74,8 @@ const Contact = ({ initialStatus = emptyStatus }) => {
 
       form.reset();
       setStatus({
-        type: data.delivered === false ? "info" : "success",
-        message:
-          data.message ||
-          "Message submitted successfully. Thank you for reaching out.",
+        type: "success",
+        message: data.message || "Message sent successfully. I received it in my email.",
       });
     } catch (error) {
       setStatus({
@@ -102,53 +99,55 @@ const Contact = ({ initialStatus = emptyStatus }) => {
           exit="hidden"
           className="mx-auto max-w-[520px] xl:mx-0"
         >
-          <p className="mb-3 text-xs uppercase tracking-[0.3em] text-accent">
-            Contact terminal
-          </p>
+          <p className="mb-3 text-xs uppercase tracking-[0.3em] text-accent">Contact terminal</p>
           <h2 className="h2 mb-4">
             Let&apos;s <span className="text-accent">connect.</span>
           </h2>
-          <p className="mx-auto mb-5 max-w-[480px] text-sm sm:text-base xl:mx-0">
-            Send a message through the form or email me directly. The form is
-            compact, validated, and ready for a webhook/email provider.
+          <p className="mx-auto mb-5 max-w-[440px] text-sm leading-6 text-white/62 sm:text-base xl:mx-0">
+            Send your name, email, subject, and message. The form now sends the message directly to my email through the secure server API.
           </p>
 
-          <div className="cyber-panel mx-auto max-w-[460px] rounded-3xl border border-white/10 bg-white/[0.035] p-4 text-left backdrop-blur-md xl:mx-0">
-            <p className="mb-3 text-[10px] uppercase tracking-[0.26em] text-white/35">
-              Direct channel
-            </p>
-            <a
-              href={`mailto:${siteConfig.email}`}
-              className="block break-all text-sm text-accent transition-colors duration-300 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-            >
-              {siteConfig.email}
-            </a>
-            <div className="mt-4 flex flex-wrap gap-3 text-xs uppercase tracking-[0.18em] text-white/45">
-              <span>{siteConfig.location}</span>
-              <span aria-hidden="true">•</span>
+          <div className="grid gap-3 text-left">
+            <div className="cyber-panel rounded-2xl border border-white/10 bg-white/[0.035] p-4">
+              <span className="block text-[10px] uppercase tracking-[0.22em] text-accent/80">Direct email</span>
               <a
-                href={`tel:${siteConfig.phone.replace(/[^0-9+]/g, "")}`}
-                className="transition-colors duration-300 hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                href={`mailto:${siteConfig.email}`}
+                className="mt-1 inline-block break-all text-sm text-white/72 transition-colors hover:text-accent"
               >
-                {siteConfig.phone}
+                {siteConfig.email}
               </a>
+            </div>
+            <div className="cyber-panel rounded-2xl border border-white/10 bg-white/[0.035] p-4">
+              <span className="block text-[10px] uppercase tracking-[0.22em] text-accent/80">Location / phone</span>
+              <p className="mt-1 text-sm text-white/62">
+                {siteConfig.location} • {siteConfig.phone}
+              </p>
             </div>
           </div>
         </motion.div>
 
         <motion.div
-          variants={fadeIn("up", 0.35)}
+          variants={fadeIn("down", 0.35)}
           initial="hidden"
           animate="show"
           exit="hidden"
-          className="screen-card-height cyber-panel mx-auto flex w-full max-w-[700px] flex-col rounded-[2rem] border border-white/10 bg-white/[0.03] p-4 shadow-[0_0_55px_rgba(241,48,36,0.08)] backdrop-blur-md sm:p-5 xl:mx-0"
+          className="cyber-panel relative overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.035] p-4 text-left shadow-[0_24px_90px_rgba(0,0,0,0.22)] backdrop-blur-xl sm:p-6"
         >
-          <p id="contact-help" className="sr-only">
-            All fields are required. The message must contain at least 10 characters.
-          </p>
+          <div className="pointer-events-none absolute -right-24 -top-24 h-56 w-56 rounded-full bg-accent/20 blur-3xl" />
+          <div className="pointer-events-none absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-accent/70 to-transparent" />
+
+          <div className="relative mb-5 flex items-center justify-between gap-3">
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.26em] text-accent/80">Email dispatch</p>
+              <h3 className="mt-1 text-xl font-semibold text-white">Send a message</h3>
+            </div>
+            <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white/45">
+              SMTP ready
+            </span>
+          </div>
 
           <form
-            className="flex h-full flex-col gap-4"
+            className="relative flex min-h-0 flex-col gap-4"
             onSubmit={handleSubmit}
             autoComplete="on"
             name="contact"
@@ -158,6 +157,10 @@ const Contact = ({ initialStatus = emptyStatus }) => {
             aria-busy={isLoading}
             noValidate={false}
           >
+            <p id="contact-help" className="text-xs leading-5 text-white/45">
+              All fields are required. Your email will be used as the reply-to address.
+            </p>
+
             <label className="sr-only" htmlFor="bot-field">
               Do not fill this field
             </label>
@@ -241,9 +244,7 @@ const Contact = ({ initialStatus = emptyStatus }) => {
             {status.message && (
               <p
                 id="contact-status"
-                className={`${getStatusClassName(
-                  status.type,
-                )} text-center text-sm xl:text-left`}
+                className={`${getStatusClassName(status.type)} rounded-2xl border px-4 py-3 text-sm`}
                 role={status.type === "error" ? "alert" : "status"}
                 aria-live="polite"
               >
@@ -253,13 +254,12 @@ const Contact = ({ initialStatus = emptyStatus }) => {
 
             <button
               type="submit"
-              className="btn group relative mx-auto flex w-full items-center justify-center overflow-hidden rounded-full border border-white/50 px-8 transition-all duration-300 hover:border-accent disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:w-auto sm:max-w-[190px] xl:mx-0"
+              className="btn group relative mx-auto flex w-full items-center justify-center overflow-hidden rounded-full border border-white/50 px-8 transition-all duration-300 hover:border-accent disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:w-auto sm:max-w-[210px] xl:mx-0"
               disabled={isLoading}
             >
               <span className="transition-all duration-500 group-hover:-translate-y-[120%] group-hover:opacity-0">
-                {isLoading ? "Sending..." : "Let's talk"}
+                {isLoading ? "Sending..." : "Send message"}
               </span>
-
               <BsArrowRight
                 className="absolute -translate-y-[120%] text-[22px] opacity-0 transition-all duration-300 group-hover:flex group-hover:-translate-y-0 group-hover:opacity-100"
                 aria-hidden="true"
@@ -273,9 +273,7 @@ const Contact = ({ initialStatus = emptyStatus }) => {
 };
 
 export async function getServerSideProps({ query }) {
-  const contactStatus = Array.isArray(query.contact)
-    ? query.contact[0]
-    : query.contact;
+  const contactStatus = Array.isArray(query.contact) ? query.contact[0] : query.contact;
 
   return {
     props: {

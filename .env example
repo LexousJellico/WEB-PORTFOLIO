@@ -1,0 +1,26 @@
+# Public canonical URL used by SEO tags and by generated robots.txt, sitemap.xml, and site.webmanifest.
+# Example: https://your-domain.com
+# Run npm run generate:public-assets after changing this locally, or let npm run build do it automatically.
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+
+# Optional client-side endpoint override. Leave empty to use /api/contact.
+NEXT_PUBLIC_CONTACT_ENDPOINT=
+
+# Contact form email receiver.
+CONTACT_TO_EMAIL=lexousmarc14@gmail.com
+
+# SMTP email delivery settings.
+# Gmail example:
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_SECURE=true
+SMTP_USER=lexousmarc14@gmail.com
+SMTP_PASS=tdoa dydx yasm ecrl
+CONTACT_FROM_EMAIL="Lexus Portfolio <lexousmarc14@gmail.com>"
+
+# Keep false/empty. Only set true when your SMTP server uses an invalid/self-signed certificate.
+SMTP_TLS_ALLOW_INVALID=false
+
+# Optional webhook copy. Email delivery still works without this.
+CONTACT_WEBHOOK_URL=
+CONTACT_WEBHOOK_TOKEN=
