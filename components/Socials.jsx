@@ -2,13 +2,17 @@ import Link from "next/link";
 
 import { socialData } from "../data/socials";
 
-const isExternalUrl = (href) => /^https?:\/\//i.test(href);
+const isExternalUrl = (href = "") => /^https?:\/\//i.test(href);
 
 const Socials = () => {
+  const visibleSocials = socialData.filter((social) =>
+    Boolean(String(social.link || "").trim()),
+  );
+
   return (
     <nav aria-label="Social links">
       <ul className="flex items-center gap-x-3 text-base sm:gap-x-5 sm:text-lg">
-        {socialData.map((social) => {
+        {visibleSocials.map((social) => {
           const external = isExternalUrl(social.link);
 
           return (

@@ -7,8 +7,10 @@ export const siteConfig = {
   phone: "0967-109-7419",
   email: "lexousmarc14@gmail.com",
   github: "https://github.com/lexousjellicomarc",
-  linkedin: "https://www.linkedin.com/in/lexousmarc14",
-  repository: "https://github.com/lexousjellicomarc/PORTFOLIO.git",
+  facebook: "https://www.facebook.com/lexusjirz/",
+  instagram: "https://www.instagram.com/xlks_ji/",
+  linkedin: "https://www.linkedin.com/in/lexous-jellico-marc-espa%C3%B1ol-012862368/?skipRedirect=true",
+  repository: "",
   siteUrl: "https://lexousjellicomarc.github.io",
   description:
     "Lexus_ji is the portfolio of Lexous Jellico Marc R. Español, an aspiring full-stack developer focused on responsive web interfaces, Laravel and React systems, UI/UX design, RFID-assisted projects, documentation, and production-ready web output.",

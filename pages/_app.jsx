@@ -14,8 +14,9 @@ function MyApp({ Component, pageProps }) {
     <MotionConfig reducedMotion="user">
       <Layout>
         <LoadingScreen />
+
         <AnimatePresence mode="wait">
-          <motion.div key={router.route} className="h-full">
+          <motion.div key={router.route} className="h-full w-full">
             <Transition />
             <Component {...pageProps} />
           </motion.div>
